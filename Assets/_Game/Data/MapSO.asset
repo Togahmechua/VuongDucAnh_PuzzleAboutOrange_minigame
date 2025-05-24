@@ -14,26 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapList:
   - levelID: 0
-    star: 1
-    isWon: 0
-  - levelID: 1
-    star: 2
-    isWon: 0
-  - levelID: 2
-    star: 3
-    isWon: 0
-  - levelID: 3
-    star: 1
-    isWon: 0
-  - levelID: 4
-    star: 3
-    isWon: 0
-  - levelID: 5
-    star: 2
-    isWon: 0
-  - levelID: 6
-    star: 2
-    isWon: 0
-  - levelID: 7
-    star: 1
+    star: 0
     isWon: 0

@@ -12,12 +12,14 @@ public class WinCanvas : UICanvas
 
     [Header("---Star Display---")]
     [SerializeField] private Image[] startImg;
+    [SerializeField] private Sprite[] yellowAndBlackSpr;
 
     private bool isClick;
 
     private void OnEnable()
     {
         //AudioManager.Ins.PlaySFX(AudioManager.Ins.win2);
+        UIManager.Ins.winCanvas = this;
         Time.timeScale = 0f;
     }
 
@@ -78,9 +80,21 @@ public class WinCanvas : UICanvas
         retryBtn.onClick.AddListener(() =>
         {
             //AudioManager.Ins.PlaySFX(AudioManager.Ins.click);
-            UIManager.Ins.CloseUI<WinCanvas>();
-            UIManager.Ins.OpenUI<MainCanvas>();
-            LevelManager.Ins.LoadMapByID(LevelManager.Ins.curMapID);
+           
+            UIManager.Ins.TransitionUI<ChangeUICanvas, WinCanvas>(0.6f,
+                () =>
+                {
+                    UIManager.Ins.OpenUI<MainCanvas>();
+                    LevelManager.Ins.LoadMapByID(LevelManager.Ins.curMapID);
+                });
         });
+    }
+
+    public void DisplayStar(int curStar)
+    {
+        for (int i = 0; i < startImg.Length; i++)
+        {
+            startImg[i].sprite = i < curStar ? yellowAndBlackSpr[0] : yellowAndBlackSpr[1];
+        }
     }
 }

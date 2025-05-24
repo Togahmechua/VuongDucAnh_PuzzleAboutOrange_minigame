@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 [CreateAssetMenu(fileName = "MapSO", menuName = "ScriptableObjects/MapSO", order = 1)]
 public class MapSO : ScriptableObject
@@ -11,6 +12,7 @@ public class MapSO : ScriptableObject
     public class MapDetails
     {
         public int levelID;
+        public AssetReferenceGameObject levelPrefab;
         public int star;
         public bool isWon;
     }
@@ -21,6 +23,15 @@ public class MapSO : ScriptableObject
         {
             string key = "MapWin_" + i;
             mapList[i].isWon = PlayerPrefs.GetInt(key, 0) == 1;
+        }
+    }
+
+    public void LoadStar()
+    {
+        for (int i = 0; i < mapList.Count; i++)
+        {
+            string key = "Star_" + i;
+            mapList[i].star = PlayerPrefs.GetInt(key, 0);
         }
     }
 }

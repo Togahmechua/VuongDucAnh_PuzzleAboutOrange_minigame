@@ -1,27 +1,28 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using UnityEditor;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Threading.Tasks;
+using System;
 
 public class LevelManager : Singleton<LevelManager>
 {
     public MapSO mapSO;
-    public List<Level> levelList = new List<Level>();
     public int curMap;
     public bool isWin;
     public int curMapID;
+    public bool timesUp;
 
     [HideInInspector] public Level level;
 
-    private List<Level> curLevelList = new List<Level>();
-    public static event Action OnMapChanged;
+
+    private List<AsyncOperationHandle<GameObject>> loadedLevels = new List<AsyncOperationHandle<GameObject>>();
 
     private void Start()
     {
-       /* curMap = PlayerPrefs.GetInt("CurrentMap", 0);
-        mapSO.LoadWinStates();*/
+        curMap = PlayerPrefs.GetInt("CurrentMap", 0);
+        mapSO.LoadWinStates();
+        mapSO.LoadStar();
     }
 
     public void LoadMapByID(int id)
@@ -33,30 +34,52 @@ public class LevelManager : Singleton<LevelManager>
             DespawnMap();
         }
 
-        foreach (Level lv in levelList)
+        MapSO.MapDetails mapDetails = mapSO.mapList.Find(x => x.levelID == id);
+        if (mapDetails == null || !mapDetails.levelPrefab.RuntimeKeyIsValid())
         {
-            if (lv.id == id)
-            {
-                level = Instantiate(levelList[id], transform);
-                curLevelList.Add(level);
-            }
+            Debug.LogError("Không tìm thấy Level ID: " + id);
+            return;
         }
 
-        OnMapChanged?.Invoke();
+        var handle = mapDetails.levelPrefab.InstantiateAsync(transform);
+        handle.Completed += OnLevelLoaded;
+
+        loadedLevels.Add(handle);
+    }
+
+    private void OnLevelLoaded(AsyncOperationHandle<GameObject> handle)
+    {
+        if (handle.Status == AsyncOperationStatus.Succeeded)
+        {
+            level = handle.Result.GetComponent<Level>();
+            if (level == null)
+            {
+                Debug.LogError("Level Prefab không có component Level!");
+            }
+        }
+        else
+        {
+            Debug.LogError("Load Level thất bại!");
+        }
     }
 
     public void DespawnMap()
     {
         if (level != null)
         {
-            foreach (Level lv in curLevelList)
+            foreach (var handle in loadedLevels)
             {
-                Destroy(level.gameObject); ;
+                if (handle.IsValid())
+                {
+                    Addressables.Release(handle);
+                }
             }
 
-            curLevelList.Clear();
+            loadedLevels.Clear();
             level = null;
             isWin = false;
+            Debug.Log("Đã xóa Level cũ!");
+            timesUp = false;
         }
     }
 }

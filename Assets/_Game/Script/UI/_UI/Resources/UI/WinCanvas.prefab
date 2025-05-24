@@ -619,7 +619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.4004792, y: 0.46800002}
   m_AnchorMax: {x: 0.4641667, y: 0.592}
-  m_AnchoredPosition: {x: 0.43702698, y: 0.14513016}
+  m_AnchoredPosition: {x: 0.43701172, y: 0.14513016}
   m_SizeDelta: {x: -1.7651978, y: 0.49349976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2038157944301711313
@@ -745,6 +745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1236573407728753562}
   - component: {fileID: 7436695919029667044}
+  - component: {fileID: 2612551786159018457}
   m_Layer: 5
   m_Name: WinCanvas
   m_TagString: Untagged
@@ -799,3 +800,27 @@ MonoBehaviour:
   - {fileID: 8209439106742696395}
   - {fileID: 1405842369075008020}
   - {fileID: 1553726489264066566}
+  yellowAndBlackSpr:
+  - {fileID: 21300000, guid: 955eb21edc165154fb4a20c804e9de4d, type: 3}
+  - {fileID: 21300000, guid: c8030c29c6bc5c349be2450fa22c04f1, type: 3}
+--- !u!95 &2612551786159018457
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9028060992543701423}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2ee6029772bf2944a04f226bc3d0165, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -33,7 +33,7 @@ public class LevelBtn : MonoBehaviour
         UIManager.Ins.TransitionUI<ChangeUICanvas, ChooseLevelCanvas>(0.6f,
            () =>
            {
-               //LevelManager.Ins.LoadMapByID(id);
+               LevelManager.Ins.LoadMapByID(id);
                UIManager.Ins.OpenUI<MainCanvas>();
            });
     }

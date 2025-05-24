@@ -7,6 +7,7 @@ public class MainCanvas : UICanvas
 {
     [SerializeField] private Button homeBtn;
     [SerializeField] private Button retryBtn;
+    [SerializeField] private TimeCounter clock;
 
     private void OnEnable()
     {
@@ -33,8 +34,13 @@ public class MainCanvas : UICanvas
                 () =>
                 {
                     UIManager.Ins.OpenUI<MainCanvas>();
-                    //LevelManager.Ins.LoadMapByID(LevelManager.Ins.curMapID);
+                    LevelManager.Ins.LoadMapByID(LevelManager.Ins.curMapID);
                 });
         });
+    }
+
+    public void StopCounter()
+    {
+        clock.StopCounter();
     }
 }
