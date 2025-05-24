@@ -26,6 +26,7 @@ public class ChooseLevelCanvas : UICanvas
     {
         backBtn.onClick.AddListener(() =>
         {
+            AudioManager.Ins.PlaySFX(AudioManager.Ins.click);
             UIManager.Ins.TransitionUI<ChangeUICanvas, ChooseLevelCanvas>(0.5f,
                 () =>
                 {

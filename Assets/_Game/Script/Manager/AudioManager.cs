@@ -13,19 +13,17 @@ public class AudioManager : Singleton<AudioManager>
     public AudioClip click;
     public AudioClip win;
     public AudioClip loose;
-    public AudioClip collect;
-    public AudioClip eatBubble;
-    public AudioClip clickMoveBtn;
+    public AudioClip complete;
 
     private bool isMuted;
 
     public bool IsMuted => isMuted;
 
-    /*private void Start()
+    private void Start()
     {
         musicSource.clip = backgroundClip;
         musicSource.Play();
-    }*/
+    }
 
     public void PlaySFX(AudioClip clip)
     {

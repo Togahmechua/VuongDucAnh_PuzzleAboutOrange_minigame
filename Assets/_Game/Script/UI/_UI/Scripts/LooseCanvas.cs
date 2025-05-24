@@ -14,7 +14,7 @@ public class LooseCanvas : UICanvas
 
     private void OnEnable()
     {
-        //AudioManager.Ins.PlaySFX(AudioManager.Ins.loose);
+        AudioManager.Ins.PlaySFX(AudioManager.Ins.loose);
         Time.timeScale = 0f;
     }
 
@@ -28,7 +28,7 @@ public class LooseCanvas : UICanvas
     {
         retryBtn.onClick.AddListener(() =>
         {
-            //AudioManager.Ins.PlaySFX(AudioManager.Ins.click);
+            AudioManager.Ins.PlaySFX(AudioManager.Ins.click);
 
             UIManager.Ins.TransitionUI<ChangeUICanvas, LooseCanvas>(0.5f,
                 () =>
@@ -40,7 +40,7 @@ public class LooseCanvas : UICanvas
 
         menuBtn.onClick.AddListener(() =>
         {
-            //AudioManager.Ins.PlaySFX(AudioManager.Ins.click);
+            AudioManager.Ins.PlaySFX(AudioManager.Ins.click);
 
             UIManager.Ins.TransitionUI<ChangeUICanvas, LooseCanvas>(0.5f,
                 () =>

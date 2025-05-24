@@ -70,7 +70,7 @@ public class Level : MonoBehaviour
         {
             isWin = true;
             Debug.Log("Win!");
-
+            AudioManager.Ins.PlaySFX(AudioManager.Ins.complete);
             StartCoroutine(IEWin());
         }
         else

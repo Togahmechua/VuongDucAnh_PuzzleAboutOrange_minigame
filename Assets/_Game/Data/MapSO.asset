@@ -14,5 +14,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapList:
   - levelID: 0
-    star: 0
-    isWon: 0
+    levelPrefab:
+      m_AssetGUID: 2eb037d9ac46c464a998fa3bca919338
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    star: 3
+    isWon: 1
+  - levelID: 1
+    levelPrefab:
+      m_AssetGUID: 23d32839c8f0f2d49bdc243190f1feaa
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    star: 2
+    isWon: 1
+  - levelID: 2
+    levelPrefab:
+      m_AssetGUID: b6cec13fe7d4c9748be4dc10611f16a6
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    star: 2
+    isWon: 1
+  - levelID: 3
+    levelPrefab:
+      m_AssetGUID: 2e7aed06104565643a75f7b26bd60a7d
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    star: 3
+    isWon: 1
+  - levelID: 4
+    levelPrefab:
+      m_AssetGUID: 254785315a130e048ad8316cc5885226
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    star: 3
+    isWon: 1
+  - levelID: 5
+    levelPrefab:
+      m_AssetGUID: 20a5a0ad421a93544879249d161818cc
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    star: 1
+    isWon: 1
+  - levelID: 6
+    levelPrefab:
+      m_AssetGUID: 53b22f4e1940d0743a14930c181a0a85
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    star: 2
+    isWon: 1
+  - levelID: 7
+    levelPrefab:
+      m_AssetGUID: dff2e7b0589250546916cfdec428a8db
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    star: 2
+    isWon: 1

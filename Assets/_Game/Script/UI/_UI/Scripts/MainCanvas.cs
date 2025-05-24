@@ -18,7 +18,7 @@ public class MainCanvas : UICanvas
     {
         homeBtn.onClick.AddListener(() =>
         {
-            //AudioManager.Ins.PlaySFX(AudioManager.Ins.click);
+            AudioManager.Ins.PlaySFX(AudioManager.Ins.click);
             UIManager.Ins.TransitionUI<ChangeUICanvas, MainCanvas>(0.5f,
                 () =>
                 {
@@ -29,7 +29,7 @@ public class MainCanvas : UICanvas
 
         retryBtn.onClick.AddListener(() =>
         {
-            //AudioManager.Ins.PlaySFX(AudioManager.Ins.click);
+            AudioManager.Ins.PlaySFX(AudioManager.Ins.click);
             UIManager.Ins.TransitionUI<ChangeUICanvas, MainCanvas>(0.5f,
                 () =>
                 {
