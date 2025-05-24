@@ -1,4 +1,4 @@
-# Intern_Test
+# NOTE
 🧭 Swipe Detection Not Working?
 If swipe detection isn't working as expected, make sure you're viewing the scene in the Simulator tab instead of the Game tab.
 
